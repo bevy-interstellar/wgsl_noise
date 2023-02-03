@@ -6,4 +6,8 @@
 fn noise_permute_#1(x: #2) -> #2 {
     return (((x * 34.0) + 10.0) * x) % 289.0;
 }
+
+fn noise_fade_#1(x: #2) -> #2 {
+  return x * x * x * (x * (x * 6.0 - 15.0) + 10.0);
+}
 // end_gen
