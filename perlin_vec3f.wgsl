@@ -1,4 +1,4 @@
-#define_import_path noise::perlin_vec2f
+#define_import_path noise::perlin_vec3f
 
 #import noise::common
 
