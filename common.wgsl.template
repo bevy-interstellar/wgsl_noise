@@ -1,0 +1,13 @@
+#define_import_path noise::common
+
+/// a file contains common functions shared by multiple noise algorithm
+
+// gen: [['f32', 'f32'], ['vec2f', 'vec2<f32>'], ['vec3f', 'vec3<f32>'], ['vec4f', 'vec4<f32>']]
+fn noise_mod289_#1(x: #2) -> #2 {
+    return x - floor(x * (1.0 / 289.0)) * 289.0;
+}
+
+fn noise_permute_#1(x: #2) -> #2 {
+    return noise_mod289_#1(((x * 34.0) + 10.0) * x);
+}
+// end_gen
