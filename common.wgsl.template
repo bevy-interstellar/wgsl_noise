@@ -10,4 +10,8 @@ fn noise_mod289_#1(x: #2) -> #2 {
 fn noise_permute_#1(x: #2) -> #2 {
     return noise_mod289_#1(((x * 34.0) + 10.0) * x);
 }
+
+fn noise_inv_sqrt_#1(r: #2) -> #2 {
+    return 1.79284291400159 - 0.85373472095314 * r;
+}
 // end_gen
