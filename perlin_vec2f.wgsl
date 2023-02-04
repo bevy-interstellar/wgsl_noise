@@ -1,5 +1,9 @@
 #define_import_path noise::perlin_vec2f
 
+#ifdef UNDEFINED
+#import noise::common
+#endif
+
 fn noise_perlin_vec2f(p: vec2<f32>) -> f32 {
     var pi = floor(p.xyxy) + vec4<f32>(0.0, 0.0, 1.0, 1.0);
     pi = pi % 289.0;    // to avoid trauncation effects in permutation

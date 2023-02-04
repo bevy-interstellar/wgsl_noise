@@ -1,5 +1,9 @@
 #define_import_path noise::perlin_vec4f
 
+#ifdef UNDEFINED
+#import noise::common
+#endif
+
 // Classic Perlin noise
 fn noise_perlin_vec4f(p: vec4<f32>) -> f32 {
     var pi0 = floor(p);     // Integer part for indexing
