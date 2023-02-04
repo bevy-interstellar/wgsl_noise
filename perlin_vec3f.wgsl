@@ -1,7 +1,5 @@
 #define_import_path noise::perlin_vec3f
 
-#import noise::common
-
 fn noise_perlin_vec3f(p: vec3<f32>) -> f32 {
     var pi0 = floor(p);     // Integer part for indexing
     var pi1 = pi0 + 1.0;    // Integer part + 1
