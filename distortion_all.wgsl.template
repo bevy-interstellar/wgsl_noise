@@ -1,0 +1,17 @@
+#define_import_path noise::distortion_all
+
+#ifdef UNDEFINED
+#import noise::fbm_all
+#endif
+
+// gen: [['perlin_vec2f', 'vec2<f32>'], ['perlin_vec3f', 'vec3<f32>'], ['perlin_vec4f', 'vec4<f32>'], ['simplex_vec2f', 'vec2<f32>'], ['simplex_vec3f', 'vec3<f32>'], ['simplex_vec4f', 'vec4<f32>']]
+fn noise_distortion_#1(v: #2, iter: i32, octa: i32, lacu: f32, gain: f32) -> f32 {
+    var res = 0.0;
+
+    for (var i = 0; i < iter; i++) {
+        res = noise_fbm_#1(v + res, octa, lacu, gain);
+    }
+
+    return res;
+}
+// end_gen
