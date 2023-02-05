@@ -7,7 +7,7 @@
 /// a file contains common functions shared by multiple noise algorithm
 
 fn noise_rand(x: f32) -> f32 {
-    return fract(sin(x) * 10007.8009);
+    return fract(sin(x) * 43759.473);
 }
 
 fn noise_permute_f32(x: f32) -> f32 {
