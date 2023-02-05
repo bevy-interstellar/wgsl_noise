@@ -23,14 +23,16 @@ fn noise_simplex_vec2f(v: vec2<f32>) -> f32 {
     if x0.x > x0.y {
         i1 = vec2(1.0, 0.0);
     } else {
-        i1 = vec2(0.0, 1.0)
+        i1 = vec2(0.0, 1.0);
     }
 
     // x0 = x0 - 0.0 + 0.0 * C.xx ;
     // x1 = x0 - i1 + 1.0 * C.xx ;
     // x2 = x0 - 1.0 + 2.0 * C.xx ;
     var x12 = x0.xyxy + c.xxzz;
-    x12.xy -= i1;
+    let sw0 = x12.xy - i1;
+    x12.x = sw0.x;
+    x12.y = sw0.y;
 
     // Permutations
     i = i % 289.0;          // Avoid truncation effects in permutation
@@ -59,7 +61,8 @@ fn noise_simplex_vec2f(v: vec2<f32>) -> f32 {
     // Compute final noise value at P
     var g: vec3<f32>;
     g.x = a0.x * x0.x + h.x * x0.y;
-    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    g.y = a0.y * x12.x + h.y * x12.y;
+    g.z = a0.z * x12.z + h.z * x12.w;
     return 130.0 * dot(m, g);
 }
 
