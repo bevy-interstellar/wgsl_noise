@@ -1,4 +1,4 @@
-#define_import_path noise::fbm_perlin
+#define_import_path noise::fbm_all
 
 #ifdef UNDEFINED
 #import noise::common
