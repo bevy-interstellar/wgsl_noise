@@ -34,6 +34,14 @@ fn noise_worley_vec2f(v: vec2<f32>) -> vec2<f32> {
     let d3 = dx * dx + dy * dy;     // d31, d32 and d33, squared
 	
     // Sort out the two smallest distances (F1, F2)
+#ifdef WORLEY_IGNORE_F2
+    d1 = min(d1, d2);
+    d1 = min(d1, d3);
+    d1.x = min(d1.x, d1.y);
+    d1.x = min(d1.x, d1.z);
+
+    return vec2(sqrt(d1.x));
+#else
     let d1a = min(d1, d2);
     d2 = max(d1, d2);               // Swap to keep candidates for F2
     d2 = min(d2, d3);               // neither F1 nor F2 are now in d3
@@ -56,4 +64,5 @@ fn noise_worley_vec2f(v: vec2<f32>) -> vec2<f32> {
     d1.y = min(d1.y, d1.z);         // nor in  d1.z
     d1.y = min(d1.y, d2.x);         // F2 is in d1.y, we're done.
     return sqrt(d1.xy);
+#endif
 }
