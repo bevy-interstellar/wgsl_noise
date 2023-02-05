@@ -1,3 +1,5 @@
+#define_import_path noise::prelude
+
 #import noise::common
 
 #import noise::random_all
