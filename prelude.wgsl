@@ -14,3 +14,5 @@
 
 #import noise::worley_vec2f
 #import noise::worley_vec3f
+
+#import noise::fbm_all
