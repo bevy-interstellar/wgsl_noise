@@ -1,4 +1,4 @@
-#define_import_path noise::simplex_vec2f
+#define_import_path noise::simplex_vec4f
 
 #ifdef UNDEFINED
 #import noise::common
@@ -9,10 +9,18 @@ fn noise_simplex_vec4f_gradient(j: f32, ip: vec4<f32>) -> vec4<f32> {
     var p: vec4<f32>;
     var s: vec4<f32>;
 
-    p.xyz = floor(fract(vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
+    let sw0 = floor(fract(vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
+    p.x = sw0.x;
+    p.y = sw0.y;
+    p.z = sw0.z;
+
     p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
     s = vec4<f32>(p < vec4(0.0));
-    p.xyz = p.xyz + (s.xyz * 2.0 - 1.0) * s.www;
+
+    let sw1 = p.xyz + (s.xyz * 2.0 - 1.0) * s.www;
+    p.x = sw1.x;
+    p.y = sw1.y;
+    p.z = sw1.z;
 
     return p;
 }
@@ -40,10 +48,13 @@ fn noise_simplex_vec4f(v: vec4<f32>) -> f32 {
     let isYZ = step(x0.zww, x0.yyz);
     //  i0.x = dot( isX, vec3( 1.0 ) );
     i0.x = isX.x + isX.y + isX.z;
-    i0.yzw = 1.0 - isX;
+    i0.y = 1.0 - isX.x;
+    i0.z = 1.0 - isX.y;
+    i0.w = 1.0 - isX.z;
     //  i0.y += dot( isYZ.xy, vec2( 1.0 ) );
     i0.y += isYZ.x + isYZ.y;
-    i0.zw += 1.0 - isYZ.xy;
+    i0.z += 1.0 - isYZ.x;
+    i0.w += 1.0 - isYZ.y;
     i0.z += isYZ.z;
     i0.w += 1.0 - isYZ.z;
 
