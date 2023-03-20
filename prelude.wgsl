@@ -1,7 +1,5 @@
 #define_import_path noise::prelude
 
-#import noise::common
-
 #import noise::perlin_vec2f
 #import noise::perlin_vec3f
 #import noise::perlin_vec4f
