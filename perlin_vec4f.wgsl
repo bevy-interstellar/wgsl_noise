@@ -1,8 +1,8 @@
 #define_import_path noise::perlin_vec4f
+#ifndef IMPORT_NOISE_PERLIN_VEC4F
+#define IMPORT_NOISE_PERLIN_VEC4F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
 
 // Classic Perlin noise
 fn noise_perlin_vec4f(p: vec4<f32>) -> f32 {
@@ -166,3 +166,5 @@ fn noise_perlin_vec4f(p: vec4<f32>) -> f32 {
 
     return 2.2 * n_xyzw;
 }
+
+#endif

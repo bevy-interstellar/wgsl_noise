@@ -1,8 +1,8 @@
 #define_import_path noise::perlin_vec3f
+#ifndef IMPORT_NOISE_PERLIN_VEC3F
+#define IMPORT_NOISE_PERLIN_VEC3F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
 
 fn noise_perlin_vec3f(p: vec3<f32>) -> f32 {
     var pi0 = floor(p);     // Integer part for indexing
@@ -85,3 +85,5 @@ fn noise_perlin_vec3f(p: vec3<f32>) -> f32 {
     let n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
     return 2.2 * n_xyz;
 }
+
+#endif

@@ -1,8 +1,8 @@
 #define_import_path noise::perlin_vec2f
+#ifndef IMPORT_NOISE_PERLIN_VEC2F
+#define IMPORT_NOISE_PERLIN_VEC2F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
 
 fn noise_perlin_vec2f(p: vec2<f32>) -> f32 {
     var pi = floor(p.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);
@@ -48,3 +48,5 @@ fn noise_perlin_vec2f(p: vec2<f32>) -> f32 {
     let n_xy = mix(n_x.x, n_x.y, fade_xy.y);
     return 2.3 * n_xy;
 }
+
+#endif

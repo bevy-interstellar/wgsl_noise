@@ -1,8 +1,8 @@
 #define_import_path noise::simplex_vec3f
+#ifndef IMPORT_NOISE_SIMPLEX_VEC3F
+#define IMPORT_NOISE_SIMPLEX_VEC3F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
 
 fn noise_simplex_vec3f(v: vec3<f32>) -> f32 {
     let c = vec2(1.0 / 6.0, 1.0 / 3.0) ;
@@ -83,3 +83,4 @@ fn noise_simplex_vec3f(v: vec3<f32>) -> f32 {
     return 105.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
+#endif

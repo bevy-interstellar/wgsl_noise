@@ -1,8 +1,9 @@
 #define_import_path noise::simplex_vec4f
+#ifndef IMPORT_NOISE_SIMPLEX_VEC4F
+#define IMPORT_NOISE_SIMPLEX_VEC4F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
+
 
 fn noise_simplex_vec4f_gradient(j: f32, ip: vec4<f32>) -> vec4<f32> {
     let ones = vec4(1.0, 1.0, 1.0, -1.0);
@@ -124,3 +125,4 @@ fn noise_simplex_vec4f(v: vec4<f32>) -> f32 {
     return 49.0 * (dot(m0 * m0, vec3(dot(p0, x0), dot(p1, x1), dot(p2, x2))) + dot(m1 * m1, vec2(dot(p3, x3), dot(p4, x4)))) ;
 }
 
+#endif

@@ -1,8 +1,8 @@
 #define_import_path noise::worley_vec2f
+#ifndef IMPORT_NOISE_WORLEY_VEC2F
+#define IMPORT_NOISE_WORLEY_VEC2F
 
-#ifdef UNDEFINED
 #import noise::common
-#endif
 
 fn noise_worley_vec2f(v: vec2<f32>) -> vec2<f32> {
     let k = 0.142857142857;     // 1/7
@@ -66,3 +66,5 @@ fn noise_worley_vec2f(v: vec2<f32>) -> vec2<f32> {
     return sqrt(d1.xy);
 #endif
 }
+
+#endif

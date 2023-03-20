@@ -1,10 +1,8 @@
+//! a file contains common functions shared by multiple noise algorithm
+
 #define_import_path noise::common
-
-/// a file contains common functions shared by multiple noise algorithm
-
-fn noise_rand(x: f32) -> f32 {
-    return fract(sin(x) * 10007.8009);
-}
+#ifndef IMPORT_NOISE_COMMON
+#define IMPORT_NOISE_COMMON
 
 // gen: [['f32', 'f32'], ['vec2f', 'vec2<f32>'], ['vec3f', 'vec3<f32>'], ['vec4f', 'vec4<f32>']]
 fn noise_permute_#1(x: #2) -> #2 {
@@ -15,3 +13,5 @@ fn noise_fade_#1(x: #2) -> #2 {
     return x * x * x * (x * (x * 6.0 - 15.0) + 10.0);
 }
 // end_gen
+
+#endif

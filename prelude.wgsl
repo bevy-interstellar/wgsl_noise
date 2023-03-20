@@ -2,8 +2,6 @@
 
 #import noise::common
 
-#import noise::random_all
-
 #import noise::perlin_vec2f
 #import noise::perlin_vec3f
 #import noise::perlin_vec4f
@@ -14,6 +12,3 @@
 
 #import noise::worley_vec2f
 #import noise::worley_vec3f
-
-#import noise::fbm_all
-#import noise::distortion_all
