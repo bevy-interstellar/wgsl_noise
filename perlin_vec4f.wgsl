@@ -164,7 +164,7 @@ fn noise_perlin_vec4f(p: vec4<f32>) -> f32 {
     let n_yzw = mix(n_zw.xy, n_zw.zw, fade_xyzw.y);
     let n_xyzw = mix(n_yzw.x, n_yzw.y, fade_xyzw.x);
 
-    return 2.2 * n_xyzw;
+    return 1.67 * n_xyzw;
 }
 
 #endif
